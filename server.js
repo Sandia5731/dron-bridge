@@ -5,7 +5,8 @@ const PORT = process.env.PORT || 8080;
 // RECUERDA: Cambia esto por tu URL de Webhook de Discord
 const DISCORD_WEBHOOK_URL = "TU_URL_DE_WEBHOOK_AQUÍ"; 
 
-const wss = new WebSocket.Server({ port: PORT });
+const server = require('http').createServer();
+const wss = new WebSocket.Server({ server });
 console.log("Servidor Bridge activo en puerto: " + PORT);
 
 wss.on('connection', (ws) => {
